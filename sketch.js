@@ -14,18 +14,18 @@ function setup() {
 	noStroke();
 	fill(0);
 	rectMode(CENTER);
-	background(50);
-	colorA = color(145,93,0);
-	colorB = color(197, 26, 60);
-	colorC = color(142,144,0);
-	colorD = color(30,71,140);
+	background(255);
+	colorA = color(48,222,179);
+	colorB = color(221,166,232);
+	colorC = color(145,162,  0);
+	colorD = color(196,195,195);
 }
 function draw() {
 	mouse.set(mouseX,mouseY)
 	for(var i = 0; i < particles.length; i++){
 		particles[i].update();
 		particles[i].draw();
-		var noiseRot = map(noise(particles[i].nowPos.x * .008 ,particles[i].nowPos.y * .008), .2, .8, 0, PI*2 );
+		var noiseRot = map(noise(particles[i].nowPos.x * .006 ,particles[i].nowPos.y * .006), .2, .8, 0, PI*2 );
 		particles[i].acc.set(cos(noiseRot)*3,sin(noiseRot)*3);
 	}
 	if(particles.length < 500){
